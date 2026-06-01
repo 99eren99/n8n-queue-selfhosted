@@ -16,20 +16,20 @@ docker compose down ; docker compose up -d --build
                     │  (Nginx/Traefik)│
                     └───────┬─────────┘
                             │
-              ┌─────────────┼──────────────┐
-              │             │              │
-              ▼             │              ▼
-      ┌──────────┐          │      ┌────────────────────┐
-      │   MAIN   │          │      │  WEBHOOK PROCESSOR │
-      │ Editor   │          │      │  /webhook/*        │         
-      │ API      │          │      │  /webhook-waiting/*│
-      │ Triggers |          |      | &Runner (sidecar)  │ 
-      │ &Runner  │          │      └──────┬─────────────┘
-      │ (sidecar)│          │             │
-      └────┬─────┘          │             │
-           │                │             │
-           │                │             │
-           ▼                ▼             ▼
+              ┌──────────────────────────┐
+              │                          │
+              ▼                          ▼
+      ┌──────────┐             ┌────────────────────┐
+      │   MAIN   │             │  WEBHOOK PROCESSOR │
+      │ Editor   │             │  /webhook/*        │         
+      │ API      │             │  /webhook-waiting/*│
+      │ Triggers |             | &Runner (sidecar)  │ 
+      │ &Runner  │             └────────┬───────────┘
+      │ (sidecar)│                      │
+      └────┬─────┘                      │
+           │                            │
+           │                            │
+           ▼                            ▼
       ┌──────────────────────────────────────┐
       │              Redis (queue)           │
       └──────────────────┬───────────────────┘
@@ -42,7 +42,7 @@ docker compose down ; docker compose up -d --build
                     └──────────┘
                          │
                          ▼
-                  ┌─────────────────┐
-                  │   PostgreSQL    │
-                  └─────────────────┘
+                ┌─────────────────┐
+                │   PostgreSQL    │
+                └─────────────────┘
 ```
