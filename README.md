@@ -20,29 +20,29 @@ docker compose down ; docker compose up -d --build
               │             │              │
               ▼             │              ▼
       ┌──────────┐          │      ┌────────────────────┐
-      │   MAIN   │          │      │     WEBHOOK        │
-      │ Editor   │          │      │  Processor         │
-      │ API      │          │      │  /webhook/*        │
-      │ Triggers |          |      |  /webhook-waiting/*│
-      │ &Runner  │          │      │ &Runner (sidecar)  │
-      │ (sidecar)│          │      └──────┬─────────────┘
+      │   MAIN   │          │      │  WEBHOOK PROCESSOR │
+      │ Editor   │          │      │  /webhook/*        │         
+      │ API      │          │      │  /webhook-waiting/*│
+      │ Triggers |          |      | &Runner (sidecar)  │ 
+      │ &Runner  │          │      └──────┬─────────────┘
+      │ (sidecar)│          │             │
       └────┬─────┘          │             │
-           │     ┌──────────┘             │
-           │     │                        │
-           ▼     ▼                        ▼
+           │                │             │
+           │                │             │
+           ▼                ▼             ▼
       ┌──────────────────────────────────────┐
       │              Redis (queue)           │
       └──────────────────┬───────────────────┘
                          │
                          ▼
-                  ┌──────────┐
-                  │  WORKER  │
-                  │ &Runner  │
-                  │ (sidecar)│
-                  └──────────┘
-                       │
-                       ▼
-              ┌─────────────────┐
-              │   PostgreSQL    │
-              └─────────────────┘
+                    ┌──────────┐
+                    │  WORKER  │
+                    │ &Runner  │
+                    │ (sidecar)│
+                    └──────────┘
+                         │
+                         ▼
+                  ┌─────────────────┐
+                  │   PostgreSQL    │
+                  └─────────────────┘
 ```
