@@ -1,0 +1,10 @@
+{
+    "name": "OpenAi Compatible Server",
+    "type": "openAiApi",
+    "data": {
+        "apiKey": "your_key",
+        "url": "http://host.docker.internal:8001/v1/"
+    },
+    "isResolvable": false,
+    "isGlobal": false
+}
