@@ -1,0 +1,2 @@
+N8N_API_ADMIN_KEY = "create admin user and create api key from settings on web ui"
+N8N_URL = "http://localhost:80"
