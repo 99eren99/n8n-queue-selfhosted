@@ -114,7 +114,7 @@ services:
     environment:
       <<: *runner-env
       N8N_RUNNERS_TASK_BROKER_URI: http://n8n-main:5679
-      N8N_RUNNERS_MAX_CONCURRENCY: 3
+      N8N_RUNNERS_MAX_CONCURRENCY: 5
     depends_on:
       - n8n-main
     networks:
@@ -142,7 +142,7 @@ services:
     environment:
       <<: *runner-env
       N8N_RUNNERS_TASK_BROKER_URI: http://n8n-webhook:5679
-      N8N_RUNNERS_MAX_CONCURRENCY: 3
+      N8N_RUNNERS_MAX_CONCURRENCY: 5
     depends_on:
       - n8n-webhook
     networks:
@@ -160,7 +160,7 @@ services:
       N8N_HOST: ${N8N_HOST}
       N8N_PORT: ${N8N_PORT}
       N8N_PROTOCOL: ${N8N_PROTOCOL}
-      QUEUE_WORKER_CONCURRENCY: 3
+      QUEUE_WORKER_CONCURRENCY: 5
       N8N_RUNNERS_SERVER_URI: http://n8n-runner-worker:5679
     extra_hosts:
       - host.docker.internal:host-gateway
@@ -173,7 +173,7 @@ services:
     environment:
       <<: *runner-env
       N8N_RUNNERS_TASK_BROKER_URI: http://n8n-worker:5679
-      N8N_RUNNERS_MAX_CONCURRENCY: 3
+      N8N_RUNNERS_MAX_CONCURRENCY: 5
     depends_on:
       - n8n-worker
     networks:
