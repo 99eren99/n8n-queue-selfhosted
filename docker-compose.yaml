@@ -90,7 +90,7 @@ services:
     
       N8N_EDITOR_BASE_URL: ${N8N_EDITOR_BASE_URL}
 
-      N8N_HOST: ${N8N_HOST}
+      N8N_HOST: 0.0.0.0
       N8N_PROTOCOL: ${N8N_PROTOCOL}
       WEBHOOK_URL: ${WEBHOOK_URL}
       OFFLOAD_MANUAL_EXECUTIONS_TO_WORKERS: ${OFFLOAD_MANUAL_EXECUTIONS_TO_WORKERS}
@@ -153,6 +153,9 @@ services:
     command: worker
     environment:
       <<: *n8n-env
+      N8N_HOST: ${N8N_HOST}
+      N8N_PORT: ${N8N_PORT}
+      N8N_PROTOCOL: ${N8N_PROTOCOL}
       QUEUE_WORKER_CONCURRENCY: 3
       N8N_RUNNERS_SERVER_URI: http://n8n-runner-worker:5679
     extra_hosts:
